@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a63b182adada4aa9c0f1a8b76f8b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runePrefab: {fileID: 1424152729358827086, guid: 228774efbf7bf2cc49566c7071be96af,
+  GameRunePrefab: {fileID: 1424152729358827086, guid: 228774efbf7bf2cc49566c7071be96af,
     type: 3}
-  rune: {fileID: 0}
   mountLocation: {fileID: 5187709789503068709}
+  hasRune: 0
+  RuneTrait: 0
+  RuneType: 0
 --- !u!1 &5187709789503068709
 GameObject:
   m_ObjectHideFlags: 0

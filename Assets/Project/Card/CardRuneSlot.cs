@@ -5,19 +5,42 @@ using UnityEngine;
 public class CardRuneSlot : MonoBehaviour
 {
 
-    public Rune runePrefab;
-    public Rune rune;
+    public GameRune GameRunePrefab;
+    private GameRune gameRune;
     public GameObject mountLocation;
 
+    public bool hasRune;
+    public RuneTrait RuneTrait;
+    public RuneType RuneType;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        rune = Instantiate(runePrefab, mountLocation.transform);
+    void Start() {
+        if (hasRune) {
+            SpawnRune();
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (gameRune == null && hasRune) {
+            SpawnRune();
+        } else if (gameRune != null && !hasRune) {
+            Destroy(gameRune.gameObject);
+            gameRune = null;
+        } else {
+            UpdateRune();
+        }
+    }
+
+    void SpawnRune() {
+        gameRune = Instantiate(GameRunePrefab, mountLocation.transform);
+        UpdateRune();
+    }
+
+    void UpdateRune() {
+        if (gameRune != null ) {
+            gameRune.RuneTrait = RuneTrait;
+            gameRune.RuneType = RuneType;
+        }
     }
 }
