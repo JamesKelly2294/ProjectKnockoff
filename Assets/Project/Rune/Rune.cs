@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rune : MonoBehaviour
 {
 
-    public string Name;
+    public string RuneName;
 
     // Start is called before the first frame update
     void Start()

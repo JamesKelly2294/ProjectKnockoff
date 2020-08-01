@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a63b182adada4aa9c0f1a8b76f8b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runePrefab: {fileID: 5040142511613367447, guid: 6012ce860a8d593cb843d98cd0507557,
+  runePrefab: {fileID: 1424152729358827086, guid: 228774efbf7bf2cc49566c7071be96af,
     type: 3}
   rune: {fileID: 0}
   mountLocation: {fileID: 5187709789503068709}
