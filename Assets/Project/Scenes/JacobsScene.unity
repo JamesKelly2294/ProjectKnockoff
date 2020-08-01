@@ -504,65 +504,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4634519903545216010, guid: fd8b2249913be593b9bba350dcc07c8a,
         type: 3}
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
-    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6565664411446955219, guid: fd8b2249913be593b9bba350dcc07c8a,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840637639466170678, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: hasRune
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
         type: 3}

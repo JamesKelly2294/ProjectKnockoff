@@ -46,27 +46,4 @@ MonoBehaviour:
   RuneName: 
   RuneTrait: 0
   RuneType: 4
-  RuneTypePrefabs:
-    HealingRunePrefab: {fileID: 8383105012576986858, guid: 8d5d1b39774b848cd88cbe6f33ba04c8,
-      type: 3}
-    DamageRunePrefab: {fileID: 5303468061078276704, guid: 3a9dc6b25c83f4aef9172632dd239aba,
-      type: 3}
-    ManaRunePrefab: {fileID: 7363323303592970393, guid: 3c03cf5b2577b16559486c7ac59559e4,
-      type: 3}
-    ReduceManaCostRunePrefab: {fileID: 4615385870647821497, guid: 8020d77a3c423164090e503e3990c194,
-      type: 3}
-    ActionsRunePrefab: {fileID: 1057798003125031140, guid: 3a0a729017e0ba96d91024a7bd126e6a,
-      type: 3}
-  RuneTraitMaterials:
-    DemonicRuneTraitMaterial: {fileID: 2100000, guid: cae1c31cd25cff51ba24d0a215a1c402,
-      type: 2}
-    LesserRuneTraitMaterial: {fileID: 2100000, guid: 034fdf7dcf6a1a0b2b117a385482b242,
-      type: 2}
-    CommonRuneTraitMaterial: {fileID: 2100000, guid: b76399bda4ba5dd148115a88c1a7e8f0,
-      type: 2}
-    MajorRuneTraitMaterial: {fileID: 2100000, guid: f8169003f55b074dea3dc6e103153306,
-      type: 2}
-    PrestineRuneTraitMaterial: {fileID: 2100000, guid: 0ca4c29d54d93f45ab15c704b9070e04,
-      type: 2}
-    AngelicRuneTraitMaterial: {fileID: 2100000, guid: 55cca203dac23a0ccbc5fe3ce268def6,
-      type: 2}
+  Configuration: {fileID: 11400000, guid: 43202f058312afafd878fd2fd195fcb2, type: 2}
