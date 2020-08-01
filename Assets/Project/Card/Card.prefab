@@ -899,7 +899,7 @@ PrefabInstance:
         type: 3}
       propertyPath: runePrefab
       value: 
-      objectReference: {fileID: 1420362261894391591, guid: 08a04b17a1eacd47d82b7e7a101d93be,
+      objectReference: {fileID: 1420362261894391591, guid: 3c03cf5b2577b16559486c7ac59559e4,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0425e52342929a853aa5734c877e90f3, type: 3}
