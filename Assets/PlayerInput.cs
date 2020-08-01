@@ -7,13 +7,13 @@ public class PlayerInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()
@@ -28,11 +28,13 @@ public class PlayerInput : MonoBehaviour
 
     void FindGrabbableObject()
     {
-        if (Input.GetMouseButtonUp(0) && !_grabbedObject)
+        if (Input.GetMouseButtonUp(0) && _grabbedObject)
         {
             Debug.Log("Released " + _grabbedObject);
             _grabbedObject = null;
-        } else if (Input.GetMouseButtonDown(0)) {
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
             int layerMask = 1 << _grabbableLayer;
 
             RaycastHit hit;
@@ -41,7 +43,7 @@ public class PlayerInput : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
                 Debug.Log("========");
-                Debug.Log("selected " + hit.transform.gameObject);
+                Debug.Log("selected " + hit.transform.gameObject.name);
                 Debug.Log("========");
                 _grabbedObject = hit.transform.gameObject;
             }
@@ -61,9 +63,9 @@ public class PlayerInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.Log("dragging on " + hit.transform.gameObject);
-                _grabbedObject.transform.position = hit.point;
-                _grabbedObject.transform.rotation = hit.transform.rotation;
+                Debug.Log("dragging " + _grabbedObject.transform.parent.name + " on " + hit.transform.gameObject.name);
+                _grabbedObject.transform.parent.position = hit.point;
+                _grabbedObject.transform.parent.rotation = hit.transform.rotation * Quaternion.Euler(90, 0, 0);
             }
         }
     }
