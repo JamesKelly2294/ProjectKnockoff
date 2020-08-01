@@ -13,11 +13,6 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void FixedUpdate()
-    {
         FindGrabbableObject();
         HandleGrabbedObject();
     }
@@ -28,9 +23,8 @@ public class PlayerInput : MonoBehaviour
 
     void FindGrabbableObject()
     {
-        if (Input.GetMouseButtonUp(0) && _grabbedObject)
+        if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Released " + _grabbedObject);
             _grabbedObject = null;
         }
         else if (Input.GetMouseButtonDown(0))
@@ -42,9 +36,6 @@ public class PlayerInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.Log("========");
-                Debug.Log("selected " + hit.transform.gameObject.name);
-                Debug.Log("========");
                 _grabbedObject = hit.transform.gameObject;
             }
         }
@@ -55,18 +46,15 @@ public class PlayerInput : MonoBehaviour
         if (!_grabbedObject) { return; }
 
         if (!Input.GetMouseButton(0)) { return; }
+        int layerMask = 1 << _interactablePlaneLayer;
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            int layerMask = 1 << _interactablePlaneLayer;
-
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
-            {
-                Debug.Log("dragging " + _grabbedObject.transform.parent.name + " on " + hit.transform.gameObject.name);
-                _grabbedObject.transform.parent.position = hit.point;
-                _grabbedObject.transform.parent.rotation = hit.transform.rotation * Quaternion.Euler(90, 0, 0);
-            }
+            _grabbedObject.transform.parent.position = hit.point;
+            _grabbedObject.transform.parent.rotation = hit.transform.rotation * Quaternion.Euler(-90, 180, 0);
         }
     }
 }
