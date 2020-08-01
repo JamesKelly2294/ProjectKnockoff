@@ -43,4 +43,12 @@ public class CardRuneSlot : MonoBehaviour
             gameRune.RuneType = RuneType;
         }
     }
+
+    public string DebugString() {
+        if (gameRune != null) {
+            return gameRune.RuneName;
+        } else {
+            return "Empty";
+        }
+    }
 }

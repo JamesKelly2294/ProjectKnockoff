@@ -20,7 +20,6 @@ public class GameRune : Rune
     void Start()
     {
         UpdateCompositeRune();
-        name = "Example";
     }
 
     // Update is called once per frame

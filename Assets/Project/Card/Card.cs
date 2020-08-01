@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class Card : MonoBehaviour
 {
@@ -15,14 +16,26 @@ public class Card : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TitleTMP.SetText(CardDescription.Name);
-        FlavorTextTMP.SetText(CardDescription.FlavorText);
+        UpdateText();
     }
 
     // Update is called once per frame
     void Update()
     {
+        CardDescription.Name = Slots.First().DebugString();
+        string debug = "";
+        foreach (var slot in Slots.Skip(1))
+        {
+            debug +=  " - " + slot.DebugString() + "\n";
+        }
+        CardDescription.FlavorText = debug;
         
+        UpdateText();
+    }
+
+    void UpdateText() {
+        TitleTMP.SetText(CardDescription.Name);
+        FlavorTextTMP.SetText(CardDescription.FlavorText);
     }
 }
 
