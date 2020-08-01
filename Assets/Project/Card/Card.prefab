@@ -895,6 +895,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.016017169
       objectReference: {fileID: 0}
+    - target: {fileID: 3370337624275249454, guid: 0425e52342929a853aa5734c877e90f3,
+        type: 3}
+      propertyPath: runePrefab
+      value: 
+      objectReference: {fileID: 1420362261894391591, guid: 08a04b17a1eacd47d82b7e7a101d93be,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0425e52342929a853aa5734c877e90f3, type: 3}
 --- !u!114 &972120786612024938 stripped
