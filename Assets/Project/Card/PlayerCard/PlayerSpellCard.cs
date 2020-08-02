@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerSpellCard : Card
+public class PlayerSpellCard : PlayerCard
 {
     
     public List<CardRuneSlot> Slots;
@@ -14,8 +14,7 @@ public class PlayerSpellCard : Card
     public CardRuneSlot BottomLeftSlot { get { return Slots.Count > 3 ? Slots[3] : null; } }
     public CardRuneSlot BottomRightSlot { get { return Slots.Count > 4 ? Slots[4] : null; } }
     
-    private bool _hidden;
-    public new void SetHidden(bool value)
+    public override void SetHidden(bool value)
     {
         if (_hidden == value) { return; }
         base.SetHidden(value);
@@ -29,14 +28,16 @@ public class PlayerSpellCard : Card
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected new void Start()
     {
-        UpdateText();
+        base.Update();
     }
 
     // Update is called once per frame
-    void Update()
+    protected new void Update()
     {
+        base.Update();
+
         CardName = Slots.First().DebugString();
         string debug = "";
         foreach (var slot in Slots.Skip(1))
@@ -45,6 +46,6 @@ public class PlayerSpellCard : Card
         }
         CardDescription = debug;
         
-        UpdateText();
+        base.UpdateText();
     }
 }

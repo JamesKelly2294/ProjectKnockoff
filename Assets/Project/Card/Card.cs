@@ -14,25 +14,25 @@ public class Card : MonoBehaviour, IHideable
     public string CardName;
     public string CardDescription;
 
-    private bool _hidden;
-    public void SetHidden(bool value)
+    protected bool _hidden;
+    virtual public void SetHidden(bool value)
     {
 
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         UpdateText();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         
     }
 
-    public void UpdateText() {
+    protected void UpdateText() {
         TitleTMP.SetText(CardName);
         FlavorTextTMP.SetText(CardDescription);
     }

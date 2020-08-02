@@ -6,11 +6,10 @@ public class CardFactory : MonoBehaviour
 {
     public GameObject basePlayerSpellCard;
 
-    public PlayerSpellCard MakeCard(RuneTrait trait, RuneType type)
+    public Card MakePlayerCard(RuneTrait trait, RuneType type)
     {
         GameObject baseCard = Instantiate(basePlayerSpellCard);
         PlayerSpellCard card = baseCard.GetComponent<PlayerSpellCard>();
-        card.SetHidden(true);
         card.MainSlot.RuneTrait = trait;
         card.MainSlot.RuneType = type;
         card.MainSlot.hasRune = true;
