@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardRuneSlot : MonoBehaviour
+public class CardRuneSlot : MonoBehaviour, IHideable
 {
 
     public GameRune GameRunePrefab;
@@ -14,36 +14,48 @@ public class CardRuneSlot : MonoBehaviour
     public RuneType RuneType;
 
     // Start is called before the first frame update
-    void Start() {
-        if (hasRune) {
+    void Awake()
+    {
+        if (hasRune)
+        {
             SpawnRune();
         }
     }
 
     // Update is called once per frame
-    void Update() {
-        if (gameRune == null && hasRune) {
+    void Update()
+    {
+        if (gameRune == null && hasRune)
+        {
             SpawnRune();
-        } else if (gameRune != null && !hasRune) {
+        }
+        else if (gameRune != null && !hasRune)
+        {
             Destroy(gameRune.gameObject);
             gameRune = null;
-        } else {
+        }
+        else
+        {
             UpdateRune();
         }
     }
 
-    void SpawnRune() {
+    void SpawnRune()
+    {
         gameRune = Instantiate(GameRunePrefab, mountLocation.transform);
+        gameRune.SetHidden(_hidden); // there's got to be a better way
         UpdateRune();
     }
 
-    void UpdateRune() {
-        if (gameRune != null ) {
+    void UpdateRune()
+    {
+        if (gameRune != null)
+        {
             gameRune.RuneTrait = RuneTrait;
             gameRune.RuneType = RuneType;
         }
     }
-
+    
     public string DebugString() {
         if (gameRune != null) {
             return gameRune.RuneName;
@@ -51,4 +63,15 @@ public class CardRuneSlot : MonoBehaviour
             return "Empty";
         }
     }
+
+    #region IHideable
+
+    private bool _hidden;
+    public void SetHidden(bool value)
+    {
+        _hidden = value;
+        if (gameRune) { gameRune.SetHidden(value); };
+    }
+
+    #endregion
 }

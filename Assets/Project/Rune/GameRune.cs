@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameRune : Rune
+public class GameRune : Rune, IHideable
 {
 
     public RuneTrait RuneTrait;
@@ -44,6 +44,8 @@ public class GameRune : Rune
         currentRuneType = RuneType;
 
         RuneName = GetStringValue(RuneTrait) + " " + GetStringValue(RuneType);
+
+        compositeRune.SetActive(!_hidden);
     }
 
     public string GetStringValue(Enum value)
@@ -63,4 +65,15 @@ public class GameRune : Rune
 
         return null;
     }
+
+    #region IHideable
+
+    private bool _hidden;
+    public void SetHidden(bool value)
+    {
+        _hidden = value;
+        if (compositeRune) { compositeRune.SetActive(!value); }
+    }
+
+    #endregion
 }

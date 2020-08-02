@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2775382530205457869}
   - component: {fileID: 240545197268506673}
   - component: {fileID: 2453424258961978684}
-  - component: {fileID: 462940181889254625}
   m_Layer: 0
   m_Name: DamageRune
   m_TagString: Untagged
@@ -80,16 +79,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &462940181889254625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5303468061078276704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a6049d4014d203e28691edc30d4faa6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RuneName: 

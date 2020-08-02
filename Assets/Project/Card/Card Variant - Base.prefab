@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3845768757580839817
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 972120786612024938, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: hasRune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 972120786612024938, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: RuneTrait
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418774263227287420, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: hasRune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418774263227287420, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: RuneTrait
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632556517648546621, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: hasRune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632556517648546621, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: RuneTrait
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2219078219636258364, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939038000444929188, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: hasRune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939038000444929188, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: RuneTrait
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2939038000444929188, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: RuneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4634519903545216010, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_Name
+      value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6358856570290352783, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6565664411446955219, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840637639466170678, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: hasRune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840637639466170678, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: RuneTrait
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840637639466170678, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: RuneType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7008844712746468662, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173383441855028673, guid: fd8b2249913be593b9bba350dcc07c8a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd8b2249913be593b9bba350dcc07c8a, type: 3}
