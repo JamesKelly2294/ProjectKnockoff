@@ -37,18 +37,30 @@ public class PlayerDeck : MonoBehaviour
         int traitCounter = 0;
         for (int i = 0; i < StartingSize; i++)
         {
-            Card card = CardFactory.MakeCard(RuneTrait.Common, trait[traitCounter]);
+            Card card = CardFactory.MakePlayerCard(RuneTrait.Common, trait[traitCounter]);
+            card.SetHidden(true);
             card.transform.position = DeckTop.transform.position;
             card.transform.rotation = DeckTop.transform.rotation;
             deck.Add(card);
-            
+
             traitCounter = (traitCounter + 1) % trait.Length;
         }
     }
 
-    void FillPlayerHandToCapacity()
+    public Card DrawCard()
     {
+        if (deck.Count == 0)
+        {
+            // TODO: shuffle deck from discard pile
+            return null;
+        }
 
+        Card card = deck[deck.Count - 1];
+        deck.RemoveAt(deck.Count - 1);
+
+        Debug.Log("Drew " + card + " from deck.");
+
+        return card;
     }
 
     // Update is called once per frame

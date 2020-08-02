@@ -14,7 +14,7 @@ public class PlayerSpellCard : PlayerCard
     public CardRuneSlot BottomLeftSlot { get { return Slots.Count > 3 ? Slots[3] : null; } }
     public CardRuneSlot BottomRightSlot { get { return Slots.Count > 4 ? Slots[4] : null; } }
     
-    public new void SetHidden(bool value)
+    public override void SetHidden(bool value)
     {
         if (_hidden == value) { return; }
         base.SetHidden(value);

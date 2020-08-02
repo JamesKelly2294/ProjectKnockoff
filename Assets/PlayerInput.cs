@@ -17,7 +17,7 @@ public class PlayerInput : MonoBehaviour
         HandleGrabbedObject();
     }
 
-    GameObject _grabbedObject;
+    Grabbable _grabbedObject;
     const int _interactablePlaneLayer = 9;
     const int _grabbableLayer = 10;
 
@@ -25,7 +25,10 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            _grabbedObject = null;
+            if(_grabbedObject && _grabbedObject.Release())
+            {
+                _grabbedObject = null;
+            }
         }
         else if (Input.GetMouseButtonDown(0))
         {
@@ -36,7 +39,11 @@ public class PlayerInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
             {
-                _grabbedObject = hit.transform.gameObject;
+                Grabbable grabbable = hit.transform.gameObject.GetComponent<Grabbable>();
+                if(grabbable && grabbable.Grab())
+                {
+                    _grabbedObject = grabbable;
+                }
             }
         }
     }

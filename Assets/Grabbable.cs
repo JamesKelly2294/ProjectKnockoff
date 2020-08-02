@@ -4,15 +4,44 @@ using UnityEngine;
 
 public class Grabbable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Vector3 _grabbedPosition;
+    private Quaternion _grabbedRotation;
+    private bool _grabbed;
+
+    // I hate this name
+    public bool IsGrabbable()
     {
-        
+        return _grabbed;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool Grab()
     {
+        if(_grabbed) { return false; }
+        _grabbedPosition = transform.parent.position;
+        _grabbedRotation = transform.parent.rotation;
+        _grabbed = true;
+
+        return true;
+    }
+
+    public bool Release()
+    {
+        if(!_grabbed) { return true; }
         
+        var moveAnimation = transform.parent.gameObject.AddComponent<TranslateAndRotateToPosition>();
+        moveAnimation.startPosition = transform.parent.position;
+        moveAnimation.startRotation = transform.parent.rotation;
+        moveAnimation.endPosition = _grabbedPosition;
+        moveAnimation.endRotation = _grabbedRotation;
+        moveAnimation.duration = 0.2f;
+
+        moveAnimation.MovementFinished += MoveAnimation_MovementFinished;
+
+        return true;
+    }
+
+    private void MoveAnimation_MovementFinished(object sender, MovementFinishedEventArgs e)
+    {
+        _grabbed = false;
     }
 }
