@@ -18,45 +18,37 @@ public class PlayerIdleState : BaseTurnState
     /// </summary>
     public PlayerDraggingRuneState playerRuneDraggingState;
 
-    public override void HandleTurnStateEvent(StateMachineManager manager, StateMachineEventType eventType, StateMachineEventContext context)
+    public override void HandleTurnStateEvent(StateMachineEventType eventType, StateMachineEventContext context)
     {
         switch (eventType)
         {
             case StateMachineEventType.PlayerActivatedMana:
-                ManaWasActivated(manager, context);
+                ManaWasActivated(context);
                 break;
 
             case StateMachineEventType.PlayerDeactivatedMana:
-                ManaWasDeactivated(manager, context);
+                ManaWasDeactivated(context);
                 break;
 
             case StateMachineEventType.PlayerTurnEnded:
-                PlayerTurnEnded(manager);
+                PlayerTurnEnded();
                 break;
 
             case StateMachineEventType.PlayerBeganSpellDrag:
-                PlayerBeganSpellDrag(manager, context);
+                PlayerBeganSpellDrag(context);
                 break;
 
             case StateMachineEventType.PlayerBeganRuneDrag:
-                PlayerBeganRuneDrag(manager, context);
-                break;
-
-            default:
-                // Don't care about other events from here.
+                PlayerBeganRuneDrag(context);
                 break;
         }
     }
 
-    public override void OnUpdate(StateMachineManager manager)
-    {
-        // TODO: Anything needed here?
-    }
-
-    private void ManaWasActivated(StateMachineManager manager, StateMachineEventContext context)
+    private void ManaWasActivated(StateMachineEventContext context)
     {
         if (context.HasMana)
         {
+            // TODO: Do the thing with the mana.
             Debug.Log("Activating mana");
         }
         else
@@ -65,7 +57,7 @@ public class PlayerIdleState : BaseTurnState
         }
     }
 
-    private void ManaWasDeactivated(StateMachineManager manager, StateMachineEventContext context)
+    private void ManaWasDeactivated(StateMachineEventContext context)
     {
         if (context.HasMana)
         {
@@ -78,30 +70,36 @@ public class PlayerIdleState : BaseTurnState
         }
     }
 
-    private void PlayerTurnEnded(StateMachineManager manager)
+    private void PlayerTurnEnded()
     {
-        manager.TransitionToState(terminalState);
+        stateMachineManager.TransitionToState(terminalState);
     }
 
-    private void PlayerBeganSpellDrag(StateMachineManager manager, StateMachineEventContext context)
+    private void PlayerBeganSpellDrag(StateMachineEventContext context)
     {
         if (context.HasCastableSpell)
         {
+            // TODO: Any validation require before accepting the drag as valid? Or should that happen in the state?
             playerSpellDraggingState.Configure(context.spells.First());
-            manager.TransitionToState(playerSpellDraggingState);
+            stateMachineManager.TransitionToState(playerSpellDraggingState);
         }
         else
         {
-            Debug.Log("A spell was not specified");
+            Debug.Log("A spell was not specified!");
         }
     }
 
-    private void PlayerBeganRuneDrag(StateMachineManager manager, StateMachineEventContext context)
+    private void PlayerBeganRuneDrag(StateMachineEventContext context)
     {
         if (context.HasRunes)
         {
             // TODO: Any validation require before accepting the drag as valid? Or should that happen in the state?
-            manager.TransitionToState(playerRuneDraggingState);
+            playerRuneDraggingState.Configure(context.runes.First());
+            stateMachineManager.TransitionToState(playerRuneDraggingState);
+        }
+        else
+        {
+            Debug.Log("A rune was not specified!");
         }
     }
 }

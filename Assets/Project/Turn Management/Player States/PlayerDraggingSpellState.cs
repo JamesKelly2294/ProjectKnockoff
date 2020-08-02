@@ -37,92 +37,87 @@ public class PlayerDraggingSpellState : BaseTurnState
         this.spell = spell;
     }
 
-    public override void HandleTurnStateEvent(StateMachineManager manager, StateMachineEventType eventType, StateMachineEventContext context)
+    public override void HandleTurnStateEvent(StateMachineEventType eventType, StateMachineEventContext context)
     {
         switch (eventType)
         {
             case StateMachineEventType.PlayerFinishedDragOnUnspecified:
                 // Abort the spell drag and go back to the idle state.
-                AbortSpellDrag(manager);
+                AbortSpellDrag();
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnBigBad:
-                AttackBigBadWithSpell(manager);
+                AttackBigBadWithSpell();
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnEnemyAOE:
-                AttackMonstersWithAOESpell(manager);
+                AttackMonstersWithAOESpell();
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnEnemyMonster:
-                AttackMonsterWithSpell(manager);
+                AttackMonsterWithSpell();
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnRune:
-                FuseSpellWithRune(manager, context);
+                FuseSpellWithRune(context);
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnDiscardPile:
-                DiscardSpell(manager, context);
+                DiscardSpell(context);
                 break;
         }
     }
 
-    public override void OnEnterState(StateMachineManager manager)
+    public override void OnEnterState()
     {
-        base.OnEnterState(manager);
+        base.OnEnterState();
 
         // TODO: Figure out which things we can interact with here, maybe with a visual treatment.
     }
 
-    public override void OnExitState(StateMachineManager manager, BaseTurnState nextState)
+    public override void OnExitState(BaseTurnState nextState)
     {
-        base.OnExitState(manager, nextState);
+        base.OnExitState(nextState);
 
         // TODO: Undo any of the visual treatments from when the state was transitioned into.
     }
 
-    public override void OnUpdate(StateMachineManager manager)
-    {
-        // TODO: Anything here?
-    }
-
-    private void AbortSpellDrag(StateMachineManager manager)
+    private void AbortSpellDrag()
     {
         // TODO: Any cleanup or animations required here?
 
         // Transition back to the idle state.
-        manager.TransitionToState(idleState);
+        stateMachineManager.TransitionToState(idleState);
     }
 
-    private void AttackBigBadWithSpell(StateMachineManager manager)
+    private void AttackBigBadWithSpell()
     {
         // TODO: Do any setup on the casting state prior to transitioning.
 
         // Transition to the casting state after setting it up.
-        manager.TransitionToState(castingState);
+        stateMachineManager.TransitionToState(castingState);
     }
 
-    private void AttackMonstersWithAOESpell(StateMachineManager manager)
+    private void AttackMonstersWithAOESpell()
     {
         // TODO: perform any initialization/setup on the casting state before transitioning to it.
-        manager.TransitionToState(castingState);
+        stateMachineManager.TransitionToState(castingState);
     }
 
-    private void AttackMonsterWithSpell(StateMachineManager manager)
+    private void AttackMonsterWithSpell()
     {
         // TODO: perform any initialization/setup on the casting state before transitioning to it.
 
         // Transition to the casting state after setting it up.
-        manager.TransitionToState(castingState);
+        stateMachineManager.TransitionToState(castingState);
     }
 
-    private void FuseSpellWithRune(StateMachineManager manager, StateMachineEventContext context)
+    private void FuseSpellWithRune(StateMachineEventContext context)
     {
         if (context.HasRunes)
         {
             fusingState.Configure(spell, context.runes.First());
-            manager.TransitionToState(fusingState);
+            stateMachineManager.TransitionToState(fusingState);
         }
         else
         {
@@ -130,11 +125,11 @@ public class PlayerDraggingSpellState : BaseTurnState
         }
     }
 
-    private void DiscardSpell(StateMachineManager manager, StateMachineEventContext context)
+    private void DiscardSpell(StateMachineEventContext context)
     {
         // TODO: Do whatever is needed to move the card to the discard pile.
 
         // Transition back to the idle state. We can discard as many spells as we have in the hand.
-        manager.TransitionToState(idleState);
+        stateMachineManager.TransitionToState(idleState);
     }
 }

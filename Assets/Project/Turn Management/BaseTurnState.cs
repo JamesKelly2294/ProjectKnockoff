@@ -2,10 +2,8 @@
 
 public abstract class BaseTurnState : MonoBehaviour
 {
-    /// <summary>
-    /// The State Machine which manages this state.
-    /// </summary>
-    private StateMachineManager stateMachineManager;
+
+    protected StateMachineManager stateMachineManager { get; private set; }
 
     /// <summary>
     /// Handle any incoming events which may result in the state transitioning or require some kind of response.
@@ -13,20 +11,13 @@ public abstract class BaseTurnState : MonoBehaviour
     /// <param name="manager">The state machine manager instance that this state belongs to</param>
     /// <param name="eventType">The event which occured</param>
     /// <param name="context">An additional context object which contains state relevent to the event</param>
-    public abstract void HandleTurnStateEvent(StateMachineManager manager, StateMachineEventType eventType, StateMachineEventContext context);
-
-    /// <summary>
-    /// States in the State Machine should implement this instead of Update so they can have access to the turn manager.
-    /// </summary>
-    /// <param name="manager">The state machine manager instance that this state belongs to</param>
-    public abstract void OnUpdate(StateMachineManager manager);
+    public abstract void HandleTurnStateEvent(StateMachineEventType eventType, StateMachineEventContext context);
 
     /// <summary>
     /// Called on the current state when a transition to the next state is about to occur.
     /// </summary>
-    /// <param name="manager">The state machine manager instance that this state belongs to</param>
     /// <param name="nextState">The next state that the state machine will transition to</param>
-    public virtual void OnExitState(StateMachineManager manager, BaseTurnState nextState)
+    public virtual void OnExitState(BaseTurnState nextState)
     {
         Debug.Log($"Transitioning away from {this.name}.");
         gameObject.SetActive(false);
@@ -36,7 +27,7 @@ public abstract class BaseTurnState : MonoBehaviour
     /// Gives the next state that will be transitioned to an opportunity to perform any required setup.
     /// </summary>
     /// <param name="manager">The state machine manager instance that this state belongs to</param>
-    public virtual void OnEnterState(StateMachineManager manager)
+    public virtual void OnEnterState()
     {
         Debug.Log($"Transitioning into {this.name}.");
         gameObject.SetActive(true);
@@ -46,10 +37,10 @@ public abstract class BaseTurnState : MonoBehaviour
     /// Pass in a state machine which will manage this state's lifecycle.
     /// 
     /// You *probably* don't want to use this unless you know what you're doing
-    /// or have some need for passing a state between state machines.
+    /// and have some need for passing this state to another state machine.
     /// </summary>
     /// <param name="manager">The state machine manager instance that this state will belong to</param>
-    public void ConfigureTurnManager(StateMachineManager manager)
+    public void ConfigureStateMachineManager(StateMachineManager manager)
     {
         this.stateMachineManager = manager;
     }
@@ -62,14 +53,5 @@ public abstract class BaseTurnState : MonoBehaviour
         // when a TurnManager or something else explicitly enables them.
         // The TurnManager does its own housekeeping of the current (active) state.
         gameObject.SetActive(false);
-    }
-
-    public void Update()
-    {
-        // Injects the state machine manager into the concrete state implementation.
-        // This could be an explicit field on the base type, but I don't think
-        // we want to introduce the possibility of miswiring state machines
-        // if we get to a point where we're nesting them inside of states.
-        OnUpdate(this.stateMachineManager);
     }
 }

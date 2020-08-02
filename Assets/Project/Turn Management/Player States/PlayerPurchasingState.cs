@@ -17,23 +17,18 @@ public class PlayerPurchasingState : BaseTurnState
         this.rune = rune;
     }
 
-    public override void HandleTurnStateEvent(StateMachineManager manager, StateMachineEventType eventType, StateMachineEventContext context)
+    public override void HandleTurnStateEvent(StateMachineEventType eventType, StateMachineEventContext context)
     {
         if (eventType == StateMachineEventType.PlayerFinishedPurchasing)
         {
-            manager.TransitionToState(terminalState);
+            stateMachineManager.TransitionToState(terminalState);
         }
     }
 
-    public override void OnEnterState(StateMachineManager manager)
+    public override void OnEnterState()
     {
-        base.OnEnterState(manager);
+        base.OnEnterState();
         
         // TODO: Orchestrate purchasing the rune here.
-    }
-
-    public override void OnUpdate(StateMachineManager manager)
-    {
-        // TODO: Is this needed?
     }
 }

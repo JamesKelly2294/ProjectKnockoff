@@ -7,16 +7,11 @@ public class PlayerCastingState : BaseTurnState
     /// </summary>
     public BaseTurnState terminalState;
 
-    public override void HandleTurnStateEvent(StateMachineManager manager, StateMachineEventType eventType, StateMachineEventContext context)
+    public override void HandleTurnStateEvent(StateMachineEventType eventType, StateMachineEventContext context)
     {
         if (eventType == StateMachineEventType.PlayerFinishedCasting)
         {
-            manager.TransitionToState(terminalState);
+            stateMachineManager.TransitionToState(terminalState);
         }
-    }
-
-    public override void OnUpdate(StateMachineManager manager)
-    {
-        // TODO: Anything needed here?
     }
 }

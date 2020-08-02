@@ -20,12 +20,13 @@ public class StateMachineManager : MonoBehaviour
     {
         Debug.Log("Starting the TurnManager state machine");
         currentState = startingState;
-        currentState.ConfigureTurnManager(this);
-        currentState.OnEnterState(this);
+        currentState.ConfigureStateMachineManager(this);
+        currentState.OnEnterState();
     }
 
     public void StopStateMachine()
     {
+        Debug.Log("Stopping the State Machine");
         currentState.gameObject.SetActive(false);
         currentState = startingState;
     }
@@ -36,10 +37,10 @@ public class StateMachineManager : MonoBehaviour
     /// <param name="nextState">The state that will be transition into</param>
     public void TransitionToState(BaseTurnState nextState)
     {
-        currentState.OnExitState(this, nextState);
+        currentState.OnExitState(nextState);
         currentState = nextState;
-        currentState.ConfigureTurnManager(this);
-        currentState.OnEnterState(this);
+        currentState.ConfigureStateMachineManager(this);
+        currentState.OnEnterState();
     }
 
     /// <summary>
@@ -50,7 +51,7 @@ public class StateMachineManager : MonoBehaviour
     /// <param name="context">Additional context-specific data which is related to the event</param>
     public void HandleTurnManagerEvent(StateMachineEventType eventType, StateMachineEventContext context)
     {
-        currentState.HandleTurnStateEvent(this, eventType, context);
+        currentState.HandleTurnStateEvent(eventType, context);
     }
 }
 

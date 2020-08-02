@@ -33,74 +33,69 @@ public class PlayerDraggingRuneState : BaseTurnState
         this.rune = rune;
     }
 
-    public override void HandleTurnStateEvent(StateMachineManager manager, StateMachineEventType eventType, StateMachineEventContext context)
+    public override void HandleTurnStateEvent(StateMachineEventType eventType, StateMachineEventContext context)
     {
         switch (eventType)
         {
             case StateMachineEventType.PlayerFinishedDragOnUnspecified:
-                AbortRuneDrag(manager);
+                AbortRuneDrag();
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnBigBad:
                 // TODO: Would it be possible to convert the rune into a spell and use the same logic in PlayerCastingState for both Runes and Spells?
-                AttackBigBadWithRune(manager);
+                AttackBigBadWithRune();
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnEnemyAOE:
                 // TODO: Would it be possible to convert the rune into a spell and use the same logic in PlayerCastingState for both Runes and Spells?
-                AttackMonstersWithAOERune(manager, context);
+                AttackMonstersWithAOERune(context);
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnEnemyMonster:
                 // TODO: Would it be possible to convert the rune into a spell and use the same logic in PlayerCastingState for both Runes and Spells?
-                AttackMonsterWithRune(manager, context);
+                AttackMonsterWithRune(context);
                 break;
 
             case StateMachineEventType.PlayerFinishedDragOnDiscardPile:
-                PurchaseRune(manager);
+                PurchaseRune();
                 break;
         }
     }
 
-    public override void OnUpdate(StateMachineManager manager)
-    {
-        // TODO: Anything here?
-    }
-
-    private void AbortRuneDrag(StateMachineManager manager)
+    private void AbortRuneDrag()
     {
         // TODO: perform any initialization/setup on the casting state before transitioning to it.
 
         // Transition back to the idle state.
-        manager.TransitionToState(idleState);
+        stateMachineManager.TransitionToState(idleState);
     }
 
-    private void AttackBigBadWithRune(StateMachineManager manager)
+    private void AttackBigBadWithRune()
     {
         // TODO: perform any initialization/setup on the casting state before transitioning to it.
 
         // Transition to the casting state after setting it up.
-        manager.TransitionToState(castingState);
+        stateMachineManager.TransitionToState(castingState);
     }
 
-    private void AttackMonstersWithAOERune(StateMachineManager manager, StateMachineEventContext context)
+    private void AttackMonstersWithAOERune(StateMachineEventContext context)
     {
         // TODO: perform any initialization/setup on the casting state before transitioning to it.
 
         // Transition to the casting state after setting it up.
-        manager.TransitionToState(castingState);
+        stateMachineManager.TransitionToState(castingState);
     }
 
-    private void AttackMonsterWithRune(StateMachineManager manager, StateMachineEventContext context)
+    private void AttackMonsterWithRune(StateMachineEventContext context)
     {
         // TODO: perform any initialization/setup on the casting state before transitioning to it.
 
         // Transition to the casting state after setting it up.
-        manager.TransitionToState(castingState);
+        stateMachineManager.TransitionToState(castingState);
     }
-    private void PurchaseRune(StateMachineManager manager)
+    private void PurchaseRune()
     {
         purchasingState.Configure(rune);
-        manager.TransitionToState(purchasingState);
+        stateMachineManager.TransitionToState(purchasingState);
     }
 }
