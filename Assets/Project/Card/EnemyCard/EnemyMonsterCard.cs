@@ -45,7 +45,28 @@ public class EnemyMonsterCard : EnemyCard
         MonsterMountPoint.MonsterType = MonsterType;
         _monsterType = MonsterType;
 
-        CardName = MonsterType.ToString();
+        switch (MonsterType)
+        {
+            case MonsterType.MrAngles:
+                CardName = "Mr. Angles";
+                CardDescription = "His twirling arms allow him to quickly roll around the battlefield, tying your shoelaces to the other foot.";
+                break;
+            case MonsterType.MrKilly:
+                CardName = "Mr. Killy";
+                CardDescription = "Mr. Killy collects lasers, so far, he has thirteen. He's willing to pay handsomely for one, if it's rare enough.";
+                break;
+            case MonsterType.MrBall:
+                CardName = "Mr. Ball";
+                CardDescription = "He's been growing his raritanium perl for over a thousand years. Think you can take if from him? Many have died trying.";
+                break;
+            default:
+                CardName = "Unknown ???";
+                CardDescription = MonsterType.ToString();
+                break;
+        }
+
+
+        
     }
 
     protected void UpdateStatus() {
