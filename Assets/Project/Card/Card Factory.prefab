@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54421a48549bea4b8d68375e7cbe7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCardPrefab: {fileID: 8435230020333270915, guid: d2d97ad4e07d02740b9d691b6d6b615b,
+  basePlayerSpellCard: {fileID: 4634519903545216010, guid: fd8b2249913be593b9bba350dcc07c8a,
     type: 3}

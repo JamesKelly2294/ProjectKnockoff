@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CardFactory : MonoBehaviour
 {
-    public GameObject baseCardPrefab;
+    public GameObject basePlayerSpellCard;
 
-    public Card MakeCard(RuneTrait trait, RuneType type)
+    public PlayerSpellCard MakeCard(RuneTrait trait, RuneType type)
     {
-        GameObject baseCard = Instantiate(baseCardPrefab);
-        Card card = baseCard.GetComponent<Card>();
+        GameObject baseCard = Instantiate(basePlayerSpellCard);
+        PlayerSpellCard card = baseCard.GetComponent<PlayerSpellCard>();
         card.SetHidden(true);
         card.MainSlot.RuneTrait = trait;
         card.MainSlot.RuneType = type;

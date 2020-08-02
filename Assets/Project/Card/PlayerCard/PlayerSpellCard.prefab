@@ -328,9 +328,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7008844712746468662}
-  - component: {fileID: 8220505450602862002}
+  - component: {fileID: 3596123230941874891}
   m_Layer: 0
-  m_Name: Card
+  m_Name: PlayerSpellCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8220505450602862002
+--- !u!114 &3596123230941874891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -366,20 +366,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4634519903545216010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 967e0c0d380599d0188ae806a1823dd1, type: 3}
+  m_Script: {fileID: 11500000, guid: a1aa3c47fce923cbb987ce8455a6fda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TitleTMP: {fileID: 2219078219636258364}
+  FlavorTextTMP: {fileID: 6358856570290352783}
+  CardName: Example Card
+  CardDescription: Lorem ipsum...
   Slots:
   - {fileID: 972120786612024938}
   - {fileID: 1418774263227287420}
   - {fileID: 2939038000444929188}
   - {fileID: 1632556517648546621}
   - {fileID: 6840637639466170678}
-  TitleTMP: {fileID: 2219078219636258364}
-  FlavorTextTMP: {fileID: 6358856570290352783}
-  CardDescription:
-    Name: Example
-    FlavorText: Example Flavor
 --- !u!1 &5526398093053736689
 GameObject:
   m_ObjectHideFlags: 0
