@@ -14,7 +14,7 @@ public class Card : MonoBehaviour, IHideable
     public string CardName;
     public string CardDescription;
 
-    private bool _hidden;
+    protected bool _hidden;
     public void SetHidden(bool value)
     {
 
