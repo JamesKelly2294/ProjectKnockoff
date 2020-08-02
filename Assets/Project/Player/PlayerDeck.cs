@@ -46,6 +46,11 @@ public class PlayerDeck : MonoBehaviour
         }
     }
 
+    void FillPlayerHandToCapacity()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
