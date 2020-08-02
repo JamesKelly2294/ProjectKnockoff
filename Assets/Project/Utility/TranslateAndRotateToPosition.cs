@@ -8,6 +8,7 @@ public class MovementFinishedEventArgs
     public GameObject GameObject { get; } // readonly
 }
 
+// TODO: Add a concept of "preferred" transform to certain objects, allow
 public class TranslateAndRotateToPosition : MonoBehaviour
 {
     public Vector3 startPosition;
