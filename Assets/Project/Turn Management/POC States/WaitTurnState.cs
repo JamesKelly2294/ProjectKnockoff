@@ -13,16 +13,16 @@ public class WaitTurnState : BaseTurnState
     private float timer = 0.0f;
     private int iterations = 0;
 
-    public override void HandleTurnStateEvent(TurnStateMachineManager manager, TurnStateMachineManagerEventType eventType, GameObject context)
+    public override void HandleTurnStateEvent(StateMachineManager manager, StateMachineEventType eventType, StateMachineEventContext context)
     {
         // No-op, we don't care about events here.
         // Normally this is where you would transition to another State
         // based on some other event happening.
     }
 
-    public override void OnTransitionIntoTurnState(TurnStateMachineManager manager)
+    public override void OnEnterState(StateMachineManager manager)
     {
-        base.OnTransitionIntoTurnState(manager);
+        base.OnEnterState(manager);
 
         secondsTimer = 0.0f;
         secondsPassed = 0;
@@ -31,7 +31,7 @@ public class WaitTurnState : BaseTurnState
         iterations = 0;
     }
 
-    public override void OnUpdate(TurnStateMachineManager manager)
+    public override void OnUpdate(StateMachineManager manager)
     {
         timer += Time.deltaTime;
         secondsTimer += Time.deltaTime;
@@ -47,7 +47,7 @@ public class WaitTurnState : BaseTurnState
         {
             timer = 0.0f;
             iterations += 1;
-
+ 
             secondsTimer = 0.0f;
             secondsPassed = 0;
 
