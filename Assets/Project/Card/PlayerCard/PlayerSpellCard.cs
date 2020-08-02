@@ -36,8 +36,6 @@ public class PlayerSpellCard : PlayerCard
     // Update is called once per frame
     protected new void Update()
     {
-        base.Update();
-
         CardName = Slots.First().DebugString();
         string debug = "";
         foreach (var slot in Slots.Skip(1))
@@ -45,7 +43,7 @@ public class PlayerSpellCard : PlayerCard
             debug +=  " - " + slot.DebugString() + "\n";
         }
         CardDescription = debug;
-        
-        base.UpdateText();
+
+        base.Update();
     }
 }

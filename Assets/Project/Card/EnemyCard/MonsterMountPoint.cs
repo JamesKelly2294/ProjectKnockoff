@@ -32,7 +32,8 @@ public class MonsterMountPoint : MonoBehaviour
 
 public enum MonsterType {
     MrAngles,
-    MrKilly
+    MrKilly,
+    MrBall
 }
 
 [Serializable]
@@ -40,6 +41,7 @@ public struct MonsterConfiguration
 {
     public GameObject MrAnglesPrefab;
     public GameObject MrKillyPrefab;
+    public GameObject MrBall;
 
     public GameObject MonsterPrefab(MonsterType monsterType) {
         switch (monsterType)
@@ -48,6 +50,8 @@ public struct MonsterConfiguration
                 return MrAnglesPrefab;
             case MonsterType.MrKilly:
                 return MrKillyPrefab;
+            case MonsterType.MrBall:
+                return MrBall;
             default:
                 return null;
         }

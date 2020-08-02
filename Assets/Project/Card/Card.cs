@@ -14,6 +14,9 @@ public class Card : MonoBehaviour, IHideable
     public string CardName;
     public string CardDescription;
 
+    private string _cardName;
+    private string _cardDescription;
+
     protected bool _hidden;
     virtual public void SetHidden(bool value)
     {
@@ -29,11 +32,16 @@ public class Card : MonoBehaviour, IHideable
     // Update is called once per frame
     protected void Update()
     {
-        
+        UpdateText();
     }
 
     protected void UpdateText() {
-        TitleTMP.SetText(CardName);
-        FlavorTextTMP.SetText(CardDescription);
+        if (_cardName != CardName || _cardDescription != CardDescription ) {
+            TitleTMP.SetText(CardName);
+            FlavorTextTMP.SetText(CardDescription);
+
+            _cardName = CardName;
+            _cardDescription = CardDescription;
+        }
     }
 }
