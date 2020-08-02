@@ -21,18 +21,18 @@ public class Card : MonoBehaviour, IHideable
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         UpdateText();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         
     }
 
-    public void UpdateText() {
+    protected void UpdateText() {
         TitleTMP.SetText(CardName);
         FlavorTextTMP.SetText(CardDescription);
     }

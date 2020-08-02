@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerSpellCard : Card
+public class PlayerSpellCard : PlayerCard
 {
     
     public List<CardRuneSlot> Slots;
@@ -28,14 +28,16 @@ public class PlayerSpellCard : Card
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected new void Start()
     {
-        UpdateText();
+        base.Update();
     }
 
     // Update is called once per frame
-    void Update()
+    protected new void Update()
     {
+        base.Update();
+
         CardName = Slots.First().DebugString();
         string debug = "";
         foreach (var slot in Slots.Skip(1))
@@ -44,6 +46,6 @@ public class PlayerSpellCard : Card
         }
         CardDescription = debug;
         
-        UpdateText();
+        base.UpdateText();
     }
 }
