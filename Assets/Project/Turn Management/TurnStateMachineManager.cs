@@ -17,6 +17,11 @@ public enum TurnStateMachineManagerEventType
     PlayerEndTurn,
 
     /// <summary>
+    /// The player finished drawing up to the hand limit.
+    /// </summary>
+    PlayerFinishedDrawingUpToHandLimit,
+
+    /// <summary>
     /// The player activated a Mana.
     /// </summary>
     PlayerManaActivated,
@@ -114,8 +119,8 @@ public class TurnStateMachineManager : MonoBehaviour
     /// This delegates to the current state to handle the event.
     /// </summary>
     /// <param name="eventType">The type of event which occured</param>
-    public void HandleTurnManagerEvent(TurnStateMachineManagerEventType eventType)
+    public void HandleTurnManagerEvent(TurnStateMachineManagerEventType eventType, GameObject context)
     {
-        currentState.HandleTurnStateEvent(this, eventType);
+        currentState.HandleTurnStateEvent(this, eventType, context);
     }
 }

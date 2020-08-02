@@ -3,7 +3,7 @@
 public abstract class BaseTurnState : MonoBehaviour
 {
     /// <summary>
-    /// The Turn 
+    /// The State Machine which manages this state.
     /// </summary>
     private TurnStateMachineManager stateMachineManager;
 
@@ -12,7 +12,8 @@ public abstract class BaseTurnState : MonoBehaviour
     /// </summary>
     /// <param name="manager">The state machine manager instance that this state belongs to</param>
     /// <param name="eventType">The event which occured</param>
-    public abstract void HandleTurnStateEvent(TurnStateMachineManager manager, TurnStateMachineManagerEventType eventType);
+    /// <param name="context">The GameObject which triggered the event (e.g. a Rune, Spell, etc.)</param>
+    public abstract void HandleTurnStateEvent(TurnStateMachineManager manager, TurnStateMachineManagerEventType eventType, GameObject context);
 
     /// <summary>
     /// States in the State Machine should implement this instead of Update so they can have access to the turn manager.
