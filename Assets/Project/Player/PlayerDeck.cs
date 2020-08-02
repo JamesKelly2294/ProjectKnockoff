@@ -12,6 +12,7 @@ public class PlayerDeck : MonoBehaviour
 
     public List<Card> deck;
     public List<Card> discard;
+    public Transform DeckTop;
 
     private CardFactory CardFactory;
 
@@ -36,7 +37,11 @@ public class PlayerDeck : MonoBehaviour
         int traitCounter = 0;
         for (int i = 0; i < StartingSize; i++)
         {
-            deck.Add(CardFactory.MakeCard(RuneTrait.Common, trait[traitCounter]));
+            Card card = CardFactory.MakeCard(RuneTrait.Common, trait[traitCounter]);
+            card.transform.position = DeckTop.transform.position;
+            card.transform.rotation = DeckTop.transform.rotation;
+            deck.Add(card);
+            
             traitCounter = (traitCounter + 1) % trait.Length;
         }
     }
